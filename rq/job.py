@@ -249,6 +249,7 @@ class Job(object):
     def perform(self):  # noqa
         """Invokes the job function with the job arguments.
         """
+        self.kwargs.update({"_id": self._id})
         return self.func(*self.args, **self.kwargs)
 
 
